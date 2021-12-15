@@ -30,6 +30,10 @@ RUN wget --no-check-certificate http://kannel.org/download/1.4.5/gateway-1.4.5.t
 RUN cd /src/gateway/addons/sqlbox && \
     ./configure -prefix=/usr -with-kannel-dir=/usr && \
     make && make bindir=/usr/sqlbox install
+    
+RUN cd /src/gateway/addons/opensmppbox && \
+    ./configure -prefix=/usr -with-kannel-dir=/usr && \
+    make && make bindir=/usr/opensmppbox install
 
 RUN mkdir /etc/kannel && \
     mkdir /var/log/kannel && \
